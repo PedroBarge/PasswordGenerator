@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ButtonGenerator = ({
   nameButton,
@@ -19,7 +19,15 @@ const ButtonGenerator = ({
 
   let caractersForPassword = [];
 
+  function copyPassword() {
+    navigator.clipboard.writeText(password);
+    alert("Password Copied!");
+  }
   const onClickButton = () => {
+    if (!uppercaseState && !lowercaseState && !numbersState && !specialState) {
+      alert("Please select an option and value");
+      return;
+    }
     if (uppercaseState) {
       caractersForPassword = caractersForPassword.concat(arrayUpper);
     }
@@ -33,18 +41,29 @@ const ButtonGenerator = ({
       caractersForPassword = caractersForPassword.concat(arraySpecial);
     }
     let allCharacters = caractersForPassword.join("");
-    let pass = "";
+    let newPassword = "";
     for (let i = 0; i < rangeState; i++) {
-      pass += allCharacters[Math.floor(Math.random() * allCharacters.length)];
+      newPassword +=
+        allCharacters[Math.floor(Math.random() * allCharacters.length)];
     }
-    setPassword(pass);
-    console.log(password);
-    alert("Password: " + password);
+    setPassword(newPassword);
   };
+
+  useEffect(() => {
+    console.log(password);
+    if (password !== "") {
+      let yes = confirm("Password: " + password);
+      if (yes) {
+        copyPassword();
+      }
+    }
+  }, [password]);
+
   return (
     <button id={idButton} onClick={onClickButton}>
       {nameButton}
     </button>
   );
 };
+
 export default ButtonGenerator;

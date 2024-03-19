@@ -6,17 +6,12 @@ import Button from "./Componets/Button/Button";
 import ButtonGenerator from "./Componets/Button/ButtonGenrator";
 import Range from "./Componets/Range/Range";
 function App() {
-  const [range, setRange] = useState(0);
+  const [range, setRange] = useState(6);
   const [uppercase, setUppercase] = useState(false);
   const [lowercase, setLowercase] = useState(false);
   const [numbers, setNumbers] = useState(false);
   const [special, setSpecial] = useState(false);
   const [password, setPassword] = useState("");
-
-  function copyPassword() {
-    navigator.clipboard.writeText("password");
-    alert("Password Copied!");
-  }
 
   function cleanOptions() {
     setRange(0);
@@ -32,15 +27,7 @@ function App() {
       <h1>Password Generator with React</h1>
       <p>--------------------------------------------------</p>
       <div className="container">
-        <div className="password-display">
-          <input placeholder="Password:" type="text" id="showPassword" value={password} onChange={setPassword}/>
-          <Button
-            idButton={"copy"}
-            onClickButton={copyPassword}
-            nameButton={"Copy"}
-          />
-        </div>
-
+    
         <div className="options">
           <div className="range">Characters range: {range}</div>
           <div className="range-input">
