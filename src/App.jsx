@@ -87,6 +87,8 @@ function App() {
             lowercaseState={lowercase}
             numbersState={numbers}
             specialState={special}
+            // this buttons has the logic for generating the password
+            // and should return the generated password to the field on top
           />
           <Button
             idButton={"clear"}
