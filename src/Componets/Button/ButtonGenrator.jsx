@@ -33,12 +33,13 @@ const ButtonGenerator = ({
       caractersForPassword = caractersForPassword.concat(arraySpecial);
     }
     let allCharacters = caractersForPassword.join("");
-    let pass="";
+    let pass = "";
     for (let i = 0; i < rangeState; i++) {
-      pass+=allCharacters[Math.floor(Math.random() * allCharacters.length)];
+      pass += allCharacters[Math.floor(Math.random() * allCharacters.length)];
     }
     setPassword(pass);
     console.log(password);
+    alert("Password: " + password);
   };
   return (
     <button id={idButton} onClick={onClickButton}>
@@ -46,5 +47,4 @@ const ButtonGenerator = ({
     </button>
   );
 };
-
 export default ButtonGenerator;

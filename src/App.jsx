@@ -5,7 +5,6 @@ import Checkbox from "./Componets/Checkbox/Checkbox";
 import Button from "./Componets/Button/Button";
 import ButtonGenerator from "./Componets/Button/ButtonGenrator";
 import Range from "./Componets/Range/Range";
-
 function App() {
   const [range, setRange] = useState(0);
   const [uppercase, setUppercase] = useState(false);
@@ -15,7 +14,7 @@ function App() {
   const [password, setPassword] = useState("");
 
   function copyPassword() {
-    navigator.clipboard.writeText(password);
+    navigator.clipboard.writeText("password");
     alert("Password Copied!");
   }
 
@@ -34,8 +33,7 @@ function App() {
       <p>--------------------------------------------------</p>
       <div className="container">
         <div className="password-display">
-          <input type={password} id="showPassword"  />
-          password: {password}
+          <input placeholder="Password:" type="text" id="showPassword" value={password} onChange={setPassword}/>
           <Button
             idButton={"copy"}
             onClickButton={copyPassword}
