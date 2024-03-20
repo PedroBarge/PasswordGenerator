@@ -52,7 +52,11 @@ const ButtonGenerator = ({
   useEffect(() => {
     console.log(password);
     if (password !== "") {
-      let yes = confirm("Password: " + password);
+      let yes = confirm(
+        "Password: " +
+          password +
+          "\nPress OK to copy the password\nCancel to redone the password"
+      );
       if (yes) {
         copyPassword();
       }
