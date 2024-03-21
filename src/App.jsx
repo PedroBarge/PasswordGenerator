@@ -11,7 +11,7 @@ function App() {
   const [lowercase, setLowercase] = useState(false);
   const [numbers, setNumbers] = useState(false);
   const [special, setSpecial] = useState(false);
-  const [password, setPassword] = useState("");
+  const [setPassword] = useState("");
 
   function cleanOptions() {
     setRange(0);
@@ -27,7 +27,6 @@ function App() {
       <h1>Password Generator with React</h1>
       <p>--------------------------------------------------</p>
       <div className="container">
-    
         <div className="options">
           <div className="range">Characters range: {range}</div>
           <div className="range-input">
@@ -57,10 +56,6 @@ function App() {
             state={special}
             setState={setSpecial}
           />
-        </div>
-
-        <div className="strength">
-          <input type="text" id="checkPasswordStrength" readOnly />
         </div>
 
         <div className="buttons">
