@@ -19,10 +19,7 @@ const ButtonGenerator = ({
 
   let caractersForPassword = [];
 
-  function copyPassword() {
-    navigator.clipboard.writeText(password);
-    alert("Password Copied!");
-  }
+
   const onClickButton = () => {
     if (!uppercaseState && !lowercaseState && !numbersState && !specialState) {
       alert("Please select an option and value");
@@ -58,6 +55,10 @@ const ButtonGenerator = ({
           "\nPress OK to copy the password\nCancel to redone the password"
       );
       if (yes) {
+        const copyPassword = () => {
+          navigator.clipboard.writeText(password);
+          alert("Password Copied!");
+        };
         copyPassword();
       }
     }
