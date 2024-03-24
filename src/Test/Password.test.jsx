@@ -16,3 +16,11 @@ test('should render',()=>{
     render(<ButtonGenerator/>);
     screen.debug();
 });
+
+test("it should update password when generate is clicked",()=>{
+    render(<ButtonGenerator/>);
+    const button = screen.getByText("Generate");
+    button.click();
+    expect(screen.getByText(/[a-zA-Z0-9]+/)).toBeInTheDocument();
+});
+

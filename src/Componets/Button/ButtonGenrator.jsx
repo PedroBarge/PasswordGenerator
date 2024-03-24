@@ -19,7 +19,6 @@ const ButtonGenerator = ({
 
   let caractersForPassword = [];
 
-
   const onClickButton = () => {
     if (!uppercaseState && !lowercaseState && !numbersState && !specialState) {
       alert("Please select an option and value");
