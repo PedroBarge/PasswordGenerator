@@ -70,7 +70,9 @@ function App() {
             // this buttons has the logic for generating the password
             // and should return the generated password to the field on top
           />
-          <Button
+        </div>
+        <div>
+        <Button
             idButton={"clear"}
             onClickButton={cleanOptions}
             nameButton={"Clear Options"}

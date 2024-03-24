@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
+import PopUp from "./../PopUp/PopUp.jsx";
 
 const ButtonGenerator = ({
   nameButton,
@@ -45,28 +46,27 @@ const ButtonGenerator = ({
     setPassword(newPassword);
   };
 
+  const onConfirm = () => navigator.clipboard.writeText(password);
+
   useEffect(() => {
     console.log(password);
-    if (password !== "") {
-      let yes = confirm(
-        "Password: " +
-          password +
-          "\nPress OK to copy the password\nCancel to redone the password"
-      );
-      if (yes) {
-        const copyPassword = () => {
-          navigator.clipboard.writeText(password);
-          alert("Password Copied!");
-        };
-        copyPassword();
-      }
-    }
   }, [password]);
 
   return (
-    <button id={idButton} onClick={onClickButton}>
-      {nameButton}
-    </button>
+    <>
+      <div>
+        <button id={idButton} onClick={onClickButton}>
+          {nameButton}
+        </button>
+      </div>
+      <div>
+        <PopUp
+          title="New Password"
+          content={password}
+          onConfirm={onConfirm}
+        />
+      </div>
+    </>
   );
 };
 
